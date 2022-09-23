@@ -40,3 +40,19 @@ font-size: 30px;
 }
 /*.about-description {}*/
 /*.about-image {}*/
+
+.grid {
+  display: flex;
+}
+.grid-col-4 > .grid-item{
+
+}
+.grid-col-4>.grid-item {
+
+}
+.grid-col-4>.grid-item {
+
+}
+.grid-item {
+
+}
