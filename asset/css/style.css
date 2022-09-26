@@ -43,20 +43,39 @@ font-size: 30px;
 
 .grid {
   display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
 }
 .grid-col-4 > .grid-item{
   width: 25%;
 
 }
-.grid-col-2>.grid-item {
+.grid-col-2 > .grid-item {
   width: 50%;
 
 }
-.grid-col-3>.grid-item {
+.grid-col-3 > .grid-item {
   width: 33.3%;
 
 }
 .grid-item {
   list-style: none;
+}
 
+.detail{
+  text-align: center;
+  padding: 0 15px;
+}
+.detail-headline{
+  font-weight:  bold;
+  margin: 0 0 20px;
+}
+.detail-img{
+  margin: 0 0 20px;
+}
+.detail-description{
+  margin: 0;
+  text-align: left;
 }
