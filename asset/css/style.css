@@ -45,14 +45,18 @@ font-size: 30px;
   display: flex;
 }
 .grid-col-4 > .grid-item{
+  width: 25%;
 
 }
-.grid-col-4>.grid-item {
+.grid-col-2>.grid-item {
+  width: 50%;
 
 }
-.grid-col-4>.grid-item {
+.grid-col-3>.grid-item {
+  width: 33.3%;
 
 }
 .grid-item {
+  list-style: none;
 
 }
