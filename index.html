@@ -2,7 +2,6 @@
 <html lang="ja">
   <head>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,12 +20,13 @@
     <link rel="stylesheet" href="./asset/css/style.css" />
   </head>
   <body>
-    <header class="header">
+    <div class="header-wrap">
+      <header class="header">
       <div class="site-logo">
         <h1 class="header-logo">タイズ株式会社</h1>
         <a href="#">
           <img
-            src="https://placehold.jp/492x64.png"
+            src="./asset/images/site-markin-logo2.png"
             alt="法人様向けマーキンノベルティサイト"
           />
         </a>
@@ -34,7 +34,7 @@
       <div class="header-contact">
         <ul>
           <li class="header-contacttel">
-            <img src="https://placehold.jp/205x84.png" alt="タイズ電話番号" />
+            <img src="./asset/images/site-contact-telfax.png" alt="タイズ電話番号" />
           </li>
           <li class="header-contacbtn">
             <a href="#">ご注文・お見積・お問い合わせ</a>
@@ -48,19 +48,21 @@
           <a href="#">ホーム</a>
         </li>
         <li class="header-navitem">
-          <a href="#">価格・送料</a>
+          <a href="#price">価格・送料</a>
         </li>
         <li class="header-navitem">
-          <a href="#">オリジナル名入れ</a>
+          <a href="#orijinal">オリジナル名入れ</a>
         </li>
         <li class="header-navitem">
-          <a href="#">入稿について</a>
+          <a href="#orijinal">入稿について</a>
         </li>
         <li class="header-navitem">
-          <a href="#">ご注文の流れ</a>
+          <a href="#flow">ご注文の流れ</a>
         </li>
       </ul>
     </nav>
+    </div>
+
     <div class="hero">
       <strong>Hello World!</strong>
       <img src="./asset/images/markin-topimg1920900.jpg" alt="" />
@@ -68,68 +70,55 @@
 
     <section class="section">
       <h1 class="section-headerline">
-        災害・安全対策グッズ　マーキン （蓄光シート・反射シート）
+        災害・安全対策グッズマーキン <span class="space">（蓄光シート・反射シート）</span>
       </h1>
       <p class="section-headerlinedetsil">マーキンは
-        <span class="marker-green">蓄光タイプ</span>と<span class="marker-yellow">反射タイプ</span>の2種類とご用意しています。<br>どちらのタイプもオリジナル印刷・
-名入れが可能です</p>
+        <span class="marker-green">蓄光タイプ</span>と<span class="marker-yellow">反射タイプ</span>の2種類とご用意しています。<br>どちらのタイプもオリジナル印刷・名入れが可能です</p>
       <div class="section-markin">
         <figure class="about-left">
           <figcaption class="about-caption">
-            <h2 class="about-headline">高輝度蓄光タイプ</h2>
-            <p class="about-description">自然光や照明の灯りで光を蓄え暗くなると明るく<br>光ります</p>
+            <div class="about-yellow">
+              <h2 class="about-headline">高輝度蓄光タイプ</h2>
+                <p class="about-description">自然光や照明の灯りで光を蓄え暗くなると明るく<br>光ります</p>
+            </div>
+
             <div class="about-list">
-                <ul class="about-secondlist">
+              <ul class="about-secondlist">
 
-                  <li><i class="fas fa-check"></i><span class="space">夜間、停電時の目印・位置表示に （人・ペット・バッグ・小物・自転車など）</span> </li>
-                  <li><i class="fas fa-check"></i>  <span class="space">アウトドア・スポーツ・レジャーに</span></li>
-                  <li><i class="fas fa-check"></i>  <span class="space">災害時の緊急対策として</span></li>
-                  <li><i class="fas fa-check"></i> <span class="space"> 交通安全対策として 暗い夜道、明るくひかるので安全です！</span></li>
-                  <li><i class="fas fa-check"></i> <span class="space"> 粘着力が高くいろいろな素材に貼ることができ、洗って繰り返し使える
-ので経済的です。</span> </li>
-                </ul>
+                <li><i class="fas fa-check"></i><span class="space">夜間、停電時の目印・位置表示に （人・ペット・バッグ・小物・自転車など）</span> </li>
+                <li><i class="fas fa-check"></i>  <span class="space">アウトドア・スポーツ・レジャーに</span></li>
+                <li><i class="fas fa-check"></i>  <span class="space">災害時の緊急対策として</span></li>
+                <li><i class="fas fa-check"></i> <span class="space"> 交通安全対策として 暗い夜道、明るくひかるので安全です！</span></li>
+                <li><i class="fas fa-check"></i> <span class="space"> 粘着力が高くいろいろな素材に貼ることができ、洗って繰り返し使えるので経済的です。</span> </li>
+              </ul>
             </div>
-
-        </figcaption>
-        <img
-          class="about-image"
-          src="https://dummyimage.com/420x200/000/fff"
-          alt="高輝度蓄光・反射テープマーキン"
-        />
-        <p class="circle-left">160個〜<br>名入れ承ります</p>
-        <img
-          class="about-image"
-          src="https://dummyimage.com/420x200/000/fff"
-          alt="高輝度蓄光・反射テープマーキン"
-        />
-
-      </figure>
-           <figure class="about-right">
-              <figcaption class="about-caption">
-                <h2 class="about-headline">高輝度反射タイプ</h2>
-                <p class="about-description">強い反射率の高輝度タイプなので差し込む光や<br>角度により輝きます
-</p>
-           <div class="about-list">
-                <ul class="about-secondlist">
-                  <li><i class="fas fa-check"></i> <span class="space">夜間、停電時の目印・位置表示に （人・ペット・バッグ・小物・自転車など） </li>
-                  <li><i class="fas fa-check"></i> <span class="space">アウトドア・スポーツ・レジャーに</span></li>
-                  <li><i class="fas fa-check"></i> <span class="space">災害時の緊急対策として</span></li>
-                  <li><i class="fas fa-check"></i> <span class="space">交通安全対策として 暗い夜道、明るくひかるので安全です！</span></li>
-                  <li><i class="fas fa-check"></i> <span class="space">粘着力が高くいろいろな素材に貼ることができ、洗って繰り返し使える
-ので経済的です。</span> </li>
-                </ul>
+          </figcaption>
+            <img class="about-image" src="https://dummyimage.com/420x200/000/fff" alt="高輝度蓄光・反射テープマーキン"/>
+            <p class="circle-left">160個〜<br>名入れ承ります</p>
+            <img class="about-image" src="https://dummyimage.com/420x200/000/fff" alt="高輝度蓄光・反射テープマーキン"/>
+        </figure>
+        <figure class="about-right">
+          <figcaption class="about-caption">
+            <div class="about-yellow">
+              <h2 class="about-headline">高輝度反射タイプ</h2>
+                <p class="about-description">強い反射率の高輝度タイプなので差し込む光や<br>角度により輝きます</p>
             </div>
-              </figcaption>
-              <img class="about-image" src="https://dummyimage.com/420x200/000/fff" alt="高輝度蓄光・反射テープマーキン"
+            <div class="about-list">
+              <ul class="about-secondlist">
+                <li><i class="fas fa-check"></i> <span class="space">夜間、停電時の目印・位置表示に （人・ペット・バッグ・小物・自転車など） </li>
+                <li><i class="fas fa-check"></i> <span class="space">アウトドア・スポーツ・レジャーに</span></li>
+                <li><i class="fas fa-check"></i> <span class="space">災害時の緊急対策として</span></li>
+                <li><i class="fas fa-check"></i> <span class="space">交通安全対策として 暗い夜道、明るくひかるので安全です！</span></li>
+                <li><i class="fas fa-check"></i> <span class="space">粘着力が高くいろいろな素材に貼ることができ、洗って繰り返し使えるので経済的です。</span> </li>
+              </ul>
+            </div>
+          </figcaption>
+          <img class="about-image" src="https://dummyimage.com/420x200/000/fff" alt="高輝度蓄光・反射テープマーキン"
         />
               <p class="circle-right">160個〜<br>名入れ承ります</p>
-              <img
-          class="about-image"
-          src="https://dummyimage.com/420x200/000/fff"
-          alt="高輝度蓄光・反射テープマーキン"
+              <img class="about-image" src="https://dummyimage.com/420x200/000/fff" alt="高輝度蓄光・反射テープマーキン"
         />
-      </figure>
-
+        </figure>
       </div>
                       <div class="section-button">
         <a href="#" class="button-second">価格を確認する</a>
@@ -142,22 +131,43 @@
 
 
 
-    <section class="section">
+    <section class="section" id="orijinal">
       <h1 class="section-headerline">オリジナル名入れについて</h1>
-            <p class="section-headerlinedetsil">蓄光タイプ・反射タイプどちらにもオリジナルの名入れが可能ですお店のマスコット、学校の紋章など、
-　多様なイラスト名入れが可能です。お気軽にご相談ください。</p>
+            <p class="section-headerlinedetsil">蓄光タイプ・反射タイプどちらにもオリジナルの名入れが可能ですお店のマスコット、学校の紋章など、多様なイラスト名入れが可能です。お気軽にご相談ください。</p>
 <div class="original-name">
   <div class="original-name-left">
-    <p>印刷方法</p>
-    <p>シルク印刷(1色刷り、2色刷り)</p>
-    <p>シルク印刷について<br>シルク印刷は特色 1 色~ 2 色の対応となります。 アミ・グラデーションには対応しておりませんので、 複雑なイラストや写真を含む原稿の場合は、対応できません。</p>
+<input id="acd-check1" class="acd-check" type="checkbox">
+
+    <label class="acd-label" for="acd-check1">印刷方法</label>
+    <div class="acd-content">
+      <p>シルク印刷(1色刷り、2色刷り)</p>
+      <ul>
+        <li>シルク印刷は特色 1 色~ 2 色の対応となります。 アミ・グラデーションには対応しておりませんので、 複雑なイラストや写真を含む原稿の場合は、対応できません。</li>
+      </ul>
+    </div>
+
+    <input id="acd-check2" class="acd-check" type="checkbox">
+    <label class="acd-label" for="acd-check2" >入稿について</label>
+    <div class="acd-content">
+       <p>入稿データ作成の手順</p>
+      <ul>
+        <li>①テンプレートをダウンロードしてください。</li>
+        <li>②Adobe llustratorで作成してください。1色の場合は、カラーモード（CMYK）のK（ブラック）のみの100%色指定で（CMYは0%）で作成してください。　2色の場合は、カラーモード（CMYK）のK（ブラック）とM（マゼンタ）の100%色指定で（CYは0%）で　レイヤーで作成してください。※アミやグラデーションはできません。</li>
+        <li>③文字が入る場合は、全ての文字をアウトライン化してください。</li>
+        <li>④弊社では「Adobe Illustrator CS6」までの対応となっております。CC以降のバージョンで制作された場合は、必ずバージョンダウンして保存してください。</li>
+        <li>⑤念の為、PDFやJPEG画像でも構いませんので、完成イメージとなるカンプデータを一緒に送っていただけますと、入稿でのトラブルを防げます。</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
     <img src="https://dummyimage.com/420x200/000/fff" alt="オリジナル名入れ">
      <img src="https://dummyimage.com/420x200/000/fff" alt="オリジナル名入れ">
   </div>
   <div class="original-name-right">
     <p>印刷範囲　(蓄光タイプ・反射タイプ共通)</p>
     <img src="" alt="">
-    <p>入稿について</p>
 
   </div>
 
@@ -165,9 +175,9 @@
 </div>
 
     </section>
-    <section class="section">
-      <h1 class="section-headerline">
-        価格表 (税別)　蓄光タイプ・反射タイプ共通
+    <section class="section" id="price">
+      <h1 class="section-headerline" id="price">
+        価格表 (税別)  蓄光タイプ・反射タイプ共通
       </h1>
       <table class="tbl-r02">
         <tr>
@@ -200,7 +210,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="detail">
       <h1 class="section-headerline">商品詳細</h1>
             <table class="tbl-r02">
           <th>フレーム色</th>
@@ -232,7 +242,7 @@
         <a href="#" class="button">ご注文・お見積・お問い合わせ</a>
       </div>
     </section>
-        <section class="section">
+        <section class="section" id="flow">
       <h1 class="section-headerline">納品までのご注文の流れ　オリジナル名入れ・印刷ありの場合</h1>
 <ul class="flow">
   <li>
@@ -299,6 +309,7 @@
     <p class="copyright">Copyright ties,Inc. All rights reserved.</p>
   </section>
 </footer>
-    <script src="./asset/js/"></script>
+
+    <script src=""></script>
   </body>
 </html>
