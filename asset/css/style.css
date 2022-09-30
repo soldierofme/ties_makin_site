@@ -39,7 +39,7 @@ label,input,textarea,select,button {
   display: block;
 }
 .section-headerline {
-  border-left: green solid 20px;
+  border-left: #00CC00 solid 20px;
   color: #333;
   background-color: #EEEEEE;
   text-align: left;
@@ -62,9 +62,6 @@ border-bottom: 5px solid #FFFF00;
 .section-button {
   text-align: center;
   margin-top: 80px;
-}
-.button-second {
-
 }
 
 /*header*/
@@ -115,7 +112,7 @@ border-bottom: 5px solid #FFFF00;
 .header-contacbtn > a{
   margin-left: 10px;
   padding: 30px 20px;
-background-color: green;
+background-color: #00CC00;
   color: #fff;
   text-decoration: none;
 }
@@ -333,7 +330,7 @@ font-size: 30px;
   display: inline-block;
   color: #fff;
   font-weight: bold;
-  background-color: green;
+  background-color: #00CC00;
   text-align: center;
   padding: 20px 200px;
   text-decoration: none;
@@ -349,7 +346,7 @@ font-size: 30px;
 
       color: #fff;
       font-weight: bold;
-      background-color: green;
+      background-color: #00CC00;
       text-align: center;
       padding: 20px 200px;
       text-decoration: none;
@@ -749,7 +746,7 @@ dd {
   line-height: 50px;
   width: 50px;
   color: #fff;
-  background: green;
+  background: #00CC00;
   margin: 0 auto 20px;
   display: block;
   border-radius: 50%;
@@ -762,7 +759,7 @@ dd {
   content: "";
   border: solid transparent;
   border-width: 8px;
-  border-top-color: green;
+  border-top-color: #00CC00;
   position: absolute;
   top: calc(100% - 2px);
   left: 50%;
@@ -773,7 +770,7 @@ dd {
 .flow>li dl {
   padding: 30px 20px;
   margin: 0;
-  border: 3px solid green;
+  border: 3px solid #00CC00;
   position: relative;
 }
 
@@ -783,8 +780,8 @@ dd {
   height: 14px;
   margin-right: 10px;
   display: inline-block;
-  border-top: 4px solid green;
-  border-right: 4px solid green;
+  border-top: 4px solid #00CC00;
+  border-right: 4px solid #00CC00;
   position: absolute;
   top: calc(50% - 14px);
   left: 104%;
@@ -795,7 +792,7 @@ dd {
 .flow>li dl dt {
   font-size: 20px;
   font-weight: 600;
-  color: green;
+  color: #00CC00;
   -ms-flex-preferred-size: 20%;
   flex-basis: 20%;
   margin-bottom: 1vh;
