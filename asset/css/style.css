@@ -41,9 +41,9 @@ label,input,textarea,select,button {
 .section-headerline {
   border-left: green solid 20px;
   color: #333;
-  background-color: #eee;
+  background-color: #EEEEEE;
   text-align: left;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   padding: 20px 15px;
 margin-bottom: 80px;
@@ -173,6 +173,7 @@ background-color: green;
 .about {
   margin: 0;
   display: flex;
+  z-index: 1;
 }
 
 .about-caption {
@@ -199,6 +200,7 @@ font-size: 30px;
 }
 .about-image {
   margin: 10px 0;
+  z-index: 1;
 }
 
 @media screen and (max-width: 768px) {
@@ -231,6 +233,12 @@ font-size: 30px;
 .grid-item {
   list-style: none;
 }
+.original-name-left,.original-name-right {
+  width: 50%;
+}
+.original-name-left > p {
+  text-align: left;
+}
 
 @media screen and (max-width: 768px){
   .grid {
@@ -260,6 +268,12 @@ font-size: 30px;
   margin: 0;
   text-align: left;
 }
+/*space*/
+.space {
+  padding-left: 0.7rem;
+}
+
+
 /* card */
 .card{
    padding: 0 10px;
@@ -343,6 +357,16 @@ font-size: 30px;
       box-shadow: 5px 5px 0 #bbb;
       transition: box-shadow .25s;
 
+}
+.about-right {
+  position: relative;
+  background-color: #FFFFCC;
+  margin-left: 0;
+  padding: 30px;
+}
+.about-left {
+  background-color: #CCFFCC;
+    padding: 30px;
 }
 
 /*.select .input .radio .textarea*/
@@ -776,4 +800,41 @@ dd {
   flex-basis: 20%;
   margin-bottom: 1vh;
   text-align: center;
+}
+
+.original-name {
+  display: flex;
+  justify-content: space-between;
+}
+/*circle*/
+.circle-right {
+  position: relative;
+  margin-left: -30px;
+    margin-bottom: -90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FF773E;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  color: #fff;
+  font-size: 16px;
+  z-index: 3;
+}
+.circle-left {
+  position: relative;
+  margin-left: -30px;
+    margin-bottom: -90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FF773E;
+      border-radius: 50%;
+      width: 130px;
+      height: 130px;
+      color: #fff;
+      font-size: 16px;
+        z-index: 10;
+
 }
