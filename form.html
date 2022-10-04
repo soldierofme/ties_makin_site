@@ -27,7 +27,7 @@
       <header class="header">
         <div class="site-logo">
           <h1 class="header-logo">タイズ株式会社</h1>
-          <a href="#">
+          <a href="index.html">
             <img
               src="./asset/images/site-markin-logo2.png"
               alt="法人様向けマーキンノベルティサイト"
@@ -51,19 +51,19 @@
       <nav class="header-nav">
         <ul class="header-navlist">
           <li class="header-navitem">
-            <a href="#">ホーム</a>
+            <a href="index.html">ホーム</a>
           </li>
           <li class="header-navitem">
-            <a href="#price">価格・送料</a>
+            <a href="index.html#price">価格・送料</a>
           </li>
           <li class="header-navitem">
-            <a href="#orijinal">オリジナル名入れ</a>
+            <a href="index.html#orijinal">オリジナル名入れ</a>
           </li>
           <li class="header-navitem">
-            <a href="#orijinal">入稿について</a>
+            <a href="index.html#orijinal">入稿について</a>
           </li>
           <li class="header-navitem">
-            <a href="#flow">ご注文の流れ</a>
+            <a href="index.html#flow">ご注文の流れ</a>
           </li>
         </ul>
       </nav>
@@ -76,61 +76,63 @@
         当サイトをご覧いただきありがとうございます。
       </h2>
       <p>
-        お問合せ内容は月曜日～金曜日の午前9時から午後5時（土日・祝日・年末年始は除く）で確認させていただいております。
+        お問合せ内容は月曜日～金曜日の午前9時から午後5時（土日・祝日・年末年始は除く）で確認させていただいております。<br />
         記載いただいた内容により回答までお時間をいただく場合があります。あらかじめご了承下さい。
       </p>
-      <form action="" class="form">
+      <form action="contactform.php" class="form" method="post">
         <table class="form-table">
           <tr>
             <th>お問い合わせ内容</th>
             <td>
               <label class="checkbox">
-                <input type="checkbox" name="問い合わせ" value="購入" />ご購入
+                <input type="hidden" name="how" value="none" />
+                <input type="checkbox" name="how1" value="購入" />ご注文
               </label>
               <label class="checkbox">
                 <input
                   type="checkbox"
-                  name="問い合わせ"
+                  name="how2"
                   value="お見積もり"
                 />お見積もり
               </label>
               <label class="checkbox">
                 <input
                   type="checkbox"
-                  name="問い合わせ"
-                  value="other"
+                  name="how3"
+                  value="その他・お問い合わせ"
                 />その他・お問い合わせ
               </label>
             </td>
           </tr>
           <tr>
-            <th>ご購入・お問い合わの商品</th>
+            <th>ご購入・お問い合わせの商品</th>
+            <input type="hidden" name="body" value="none" />
             <td>
               <label class="checkbox">
                 <input
                   type="checkbox"
-                  name="商品"
+                  name="luminousnoname"
                   value="蓄光名入れなし"
                 />マーキン 高輝度 蓄光タイプ　印刷・名入れなし
               </label>
               <label class="checkbox">
                 <input
                   type="checkbox"
-                  name="商品"
+                  name="luminousname"
                   value="蓄光名入れあり"
                 />マーキン 高輝度 蓄光タイプ　印刷・名入れあり
               </label>
               <label class="checkbox">
                 <input
                   type="checkbox"
-                  name="商品"
+                  name="reflectionnoname"
                   value="反射名入れなし"
                 />マーキン 高輝度 反射タイプ　印刷・名入れなし
               </label>
               <label class="checkbox">
                 <input
                   type="checkbox"
-                  name="商品"
+                  name="reflectionname"
                   value="反射名入れあり"
                 />マーキン 高輝度 反射タイプ　印刷・名入れあり
               </label>
@@ -141,7 +143,13 @@
               <label for="companyname"> 会社・店舗名 ※ </label>
             </th>
             <td>
-              <input class="input" type="text" id="companyname" size="30" />
+              <input
+                class="input"
+                type="text"
+                id="companyname"
+                size="30"
+                name="companyname"
+              />
             </td>
           </tr>
           <tr>
@@ -149,7 +157,13 @@
               <label for="name"> ご担当者様お名前 ※ </label>
             </th>
             <td>
-              <input class="input" type="text" id="name" size="30" />
+              <input
+                class="input"
+                type="text"
+                id="name"
+                size="30"
+                name="name"
+              />
             </td>
           </tr>
           <tr>
@@ -157,7 +171,7 @@
               <label for="city">都道府県 ※ </label>
             </th>
             <td>
-              <select class="select" name="" id="city">
+              <select class="select" name="city" id="city">
                 <option value="">Menu 1</option>
                 <option value="">Menu 2</option>
                 <option value="">Menu 3</option>
@@ -183,7 +197,13 @@
               <label for="email"> Email ※ </label>
             </th>
             <td>
-              <input class="input" type="text" id="email" size="30" />
+              <input
+                class="input"
+                type="text"
+                id="email"
+                size="30"
+                name="email"
+              />
             </td>
           </tr>
           <tr>
@@ -191,7 +211,7 @@
               <label for="tel"> 電話番号 ※ </label>
             </th>
             <td>
-              <input class="input" type="tel" id="tel" size="30" />
+              <input class="input" type="tel" id="tel" size="30" name="tel" />
             </td>
           </tr>
           <tr>
@@ -204,12 +224,19 @@
                 cols="30"
                 rows="10"
                 id="detail"
+                name="detail"
               ></textarea>
             </td>
           </tr>
         </table>
+        <p class="normalcontents">
+          弊社で設定した<a href="../privacypolicy.html">プライバシーポリシー</a
+          >に基づき、送信いただいたお客様の情報を無断で転用、使用しない事をお約束致します。
+        </p>
         <div class="form-button">
-          <button class="button buttou-submission" type="submit">Submit</button>
+          <button class="button buttou-submission" type="submit">
+            送信内容確認メールを受け取る
+          </button>
         </div>
       </form>
     </section>
@@ -217,7 +244,7 @@
     <!--footer-->
     <footer id="footer">
       <section class="primary">
-        <p class="logo"><a href="#">タイズ株式会社</a></p>
+        <p class="logo">タイズ株式会社</p>
         <p class="address">
           〒110-0008<span class="space">東京都台東区池之端1-1-4</span
           ><span class="space">第2ワタイフラット4F</span><br />
@@ -226,11 +253,11 @@
         </p>
         <div class="navi-row">
           <ul class="navi">
-            <li><a href="#">ホーム</a></li>
-            <li><a href="#price">価格表・送料</a></li>
-            <li><a href="#orijinal">オリジナル名入れ</a></li>
-            <li><a href="#orijinal">入稿について</a></li>
-            <li><a href="#flow">ご注文の流れ</a></li>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="index.html#price">価格表・送料</a></li>
+            <li><a href="index.html#orijinal">オリジナル名入れ</a></li>
+            <li><a href="index.html#orijinal">入稿について</a></li>
+            <li><a href="index.html#flow">ご注文の流れ</a></li>
           </ul>
           <ul class="sns-navi">
             <li>
