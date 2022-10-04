@@ -18,6 +18,9 @@ label,input,textarea,select,button {
 .button{
   border: 0;
 }
+.text-red {
+  color: red;
+}
 .button.buttou-submission{
   background-color: aquamarine;
 
@@ -79,7 +82,7 @@ border-bottom: 5px solid #FFFF00;
   background-color: white;
   display: flex;
   justify-content: space-between;
-  padding: 10px 100px 6px 100px;
+  padding: 5px 100px 0px 100px;
 
 }
 .header-wrap{
@@ -101,6 +104,7 @@ border-bottom: 5px solid #FFFF00;
   color: transparent;
 }
 
+/*nav ボタンお申し込み*/
 .header-navitem > a {
   display: block;
   padding: 10px;
@@ -109,8 +113,9 @@ border-bottom: 5px solid #FFFF00;
   font-weight: bold;
   /* border-bottom: 2px solid transparent; */
   transition: color .25s;
-
 }
+
+
 .header-navitem > a:hover {
   /* border-bottom: 2px solid #00CC00; */
     color: white;
@@ -125,10 +130,44 @@ border-bottom: 5px solid #FFFF00;
 
 .header-contacbtn > a{
   margin-left: 10px;
-  padding: 30px 20px;
-background-color: #00CC00;
+  padding: 15px 20px;
+  background-color: #00CC00;
   color: #fff;
   text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 0 #bbb;
+  transition: box-shadow .25s;
+}
+
+@media screen and (max-width:1177px) {
+  .header-contacbtn > a {
+    display: inline-block;
+    font-size: 15px;
+    padding: auto;
+    line-height: 1.5em;
+    padding: 10px 20px;
+  }
+}
+.header-contacttel {
+  margin-right: 20px;
+}
+.header-contacbtn>a:hover {
+  box-shadow: 0 0 0 #bbb;
+}
+.sma {
+  display: none;
+}
+
+/*スマートフォンでは有効（改行する）*/
+@media screen and (max-width:1177px) {
+  .sma {
+    text-align: center;
+    line-height: 2em;
+    display: inline-block;
+        padding: 30px 20px;
+  }
 }
 
 .header-nav {
@@ -197,15 +236,15 @@ background-color: #00CC00;
   text-align: center;
 }
 .about-headline {
-margin: 0 0 20px;
 font-size: 30px;
+margin-bottom: 0;
 }
 .about-description {
   color: #000;
-  text-align: center
-  ;
+  text-align: center;
   border-bottom: #bbb solid 2px;
-  padding-bottom: 30px;
+  padding: 30px;
+  margin: 0;
 }
 .about-firstlist,.about-secondlist {
   text-align: left;
@@ -218,6 +257,26 @@ font-size: 30px;
   margin: 10px 0;
   z-index: 1;
 }
+
+.about-right {
+  position: relative;
+  background-color: #FFFFCC;
+  margin-left: 0;
+  padding: 0 30px;
+}
+
+.about-left {
+  background-color: #CCFFCC;
+  padding: 0 30px;
+}
+.aboutprint-image {
+  padding-bottom: 70px;
+}
+/* .text-jd {
+  font-size: 20px;
+  font-weight: normal;
+  margin: 0;
+} */
 
 @media screen and (max-width: 768px) {
   .about {
@@ -273,7 +332,6 @@ font-size: 30px;
 }
 .detail-headline{
   font-weight:  bold;
-  margin: 0 0 20px;
 }
 .detail-img{
   margin: 0 0 20px;
@@ -372,16 +430,7 @@ font-size: 30px;
       transition: box-shadow .25s;
 
 }
-.about-right {
-  position: relative;
-  background-color: #FFFFCC;
-  margin-left: 0;
-  padding: 30px;
-}
-.about-left {
-  background-color: #CCFFCC;
-    padding: 30px;
-}
+
 
 /*.select .input .radio .textarea*/
 .select {
@@ -704,6 +753,7 @@ dd {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-wrap: wrap;
   -webkit-box-pack: space-between;
   -ms-flex-pack: space-between;
   justify-content: space-between;
@@ -713,6 +763,9 @@ dd {
   -ms-flex-preferred-size: 22%;
   flex-basis: 22%;
 }
+
+
+
 
 .flow>li .icon {
   font-family: 'Montserrat', sans-serif;
@@ -729,6 +782,8 @@ dd {
   letter-spacing: 2px;
 }
 
+
+
 .flow>li .icon::before {
   content: "";
   border: solid transparent;
@@ -740,6 +795,18 @@ dd {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
+.flow>li:last-child .icon::before{
+    content: "";
+    border: solid transparent;
+    border-width: 8px;
+    border-top-color: white;
+    position: absolute;
+    top: calc(100% - 2px);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
 
 .flow>li dl {
   padding: 30px 20px;
@@ -747,7 +814,9 @@ dd {
   border: 3px solid #00CC00;
   position: relative;
 }
-
+.flow>li:last-child dl {
+    border: 3px solid white;
+}
 .flow>li:not(:last-child) dl::before {
   content: "";
   width: 14px;
@@ -762,6 +831,22 @@ dd {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+.flow>li:nth-last-child(2) dl::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+  display: inline-block;
+  border-top: 4px solid white;
+  border-right: 4px solid white;
+  position: absolute;
+  top: calc(50% - 14px);
+  left: 104%;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
 
 .flow>li dl dt {
   font-size: 20px;
@@ -780,6 +865,8 @@ dd {
 /*circle*/
 .circle-right {
   position: relative;
+  top: -130px;
+  left: -30px;
   margin-left: -30px;
     margin-bottom: -90px;
   display: flex;
@@ -790,23 +877,29 @@ dd {
   width: 130px;
   height: 130px;
   color: #fff;
-  font-size: 16px;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1.3em;
   z-index: 3;
 }
 .circle-left {
   position: relative;
+  top: -130px;
+  left: -30px;
   margin-left: -30px;
-    margin-bottom: -90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #FF773E;
-      border-radius: 50%;
-      width: 130px;
-      height: 130px;
-      color: #fff;
-      font-size: 16px;
-        z-index: 3;
+  margin-bottom: -90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FF773E;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  color: #fff;
+  font-size: 22px;
+  z-index: 3;
+  font-weight: bold;
+   line-height: 1.3em;
 
 }
 
@@ -881,4 +974,31 @@ dd {
   .acd-check:checked+.acd-label+.acd-content {
     padding: 10px 0;
   }
+}
+/*スラッシュ*/
+.quote {
+  position: relative;
+  padding: 0px 60px;
+  white-space: nowrap;
+  text-align: center;
+}
+div.quote::before,
+div.quote::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  display: block;
+  width: 2px;
+  height: 100%;
+  background: #ccc;
+}
+
+div.quote::before {
+  left: 29px;
+  transform: rotate(-30deg)
+}
+
+div.quote::after {
+  right: 29px;
+  transform: rotate(30deg)
 }
