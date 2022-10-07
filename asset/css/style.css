@@ -993,6 +993,7 @@ dd {
   font-family: bold;
 }
 
+
 .acd-label::after {
   display: flex;
   align-items: center;
@@ -1018,6 +1019,17 @@ dd {
   word-break: break-all;
   text-align: left;
   font-size: 19px;
+}
+.pdf a {
+  display: block;
+  width: 60%;
+  margin: 20px auto;
+  padding: 15px 10px;
+  background: #eee;
+  color: #333;
+  text-align: left;
+  font-size: 19px;
+  text-decoration: none;
 }
 
 .acd-check:checked+.acd-label+.acd-content {
