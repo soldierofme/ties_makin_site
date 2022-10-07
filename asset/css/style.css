@@ -115,6 +115,10 @@ border-bottom: 5px solid #FFFF00;
   display: block;
   color: transparent;
 }
+.site-logo img{
+  margin-top: 12px;
+
+}
 
 /*nav ボタンお申し込み*/
 .header-navitem > a {
@@ -290,7 +294,7 @@ line-height: 1.2em;
   margin: 50px 0;
 }
 .about-image {
-  margin: 10px 0;
+  margin: 10px 23px;
   z-index: 1;
 }
 
