@@ -24,8 +24,12 @@ label,input,textarea,select,button {
 .text-big {
   font-size: 36px;
 }
+.text-small {
+  font-size: 16px;
+}
 .button.buttou-submission{
-  background-color: aquamarine;
+font-size: 24px;
+font-weight: bold;
 
 }
 html {
@@ -41,6 +45,7 @@ html {
 }
 .section.section-secondry {
   margin-top: 80px;
+
 }
 .section-markin {
   display: flex;
@@ -105,6 +110,7 @@ border-bottom: 5px solid #FFFF00;
   font-size: 15px;
 }
 
+
 .header-logo > a {
   display: block;
   color: transparent;
@@ -157,8 +163,12 @@ border-bottom: 5px solid #FFFF00;
   }
 }
 .header-contacttel {
+  display: inline-grid;
   margin-right: 20px;
 }
+/* .header-markinlogo {
+  width: 50px;
+} */
 .header-contacbtn>a:hover {
   box-shadow: 0 0 0 #bbb;
 }
@@ -206,17 +216,39 @@ border-bottom: 5px solid #FFFF00;
   margin: 0;
 
 }
-.hero > strong {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  font-size: 80px;
-  font-weight: bold;
+.storong {
+  /*
+  transform: translate(-50%,-50%); */
+  /* position: relative;
   display: block;
-  width: 100%;
-  text-align: center;
-  z-index: 2;
+  */
+  position: absolute;
+  top: 73%;
+  left: 54%;
+background-image: url(/asset/images/markinsite-tv-heroimg.png );
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center right ;
+color: #333;
+width: 450px;
+background-color: white;
+font-size: 20px;
+font-weight: bold;
+border-radius: 10px;
+border: #00CC00 solid 3px;
+padding: 20px 20px;
+text-align: left;
+opacity: 90%;
+}
+.storong-text {
+  color: #00CC00;
+  font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+      top: 71%;
+      left: 72%;
+      z-index: 100;
+      text-align: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -273,7 +305,7 @@ line-height: 1.2em;
   margin-left: 0;
   padding: 0 30px;
 }
-.about-right p {
+.about-description.top {
   margin-top: 40px;
 }
 
@@ -463,7 +495,7 @@ line-height: 1.2em;
 }
 .input {
     border-radius: 5px;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
     min-width: 500px;
 
@@ -483,10 +515,15 @@ line-height: 1.2em;
   padding: 10px 0 10px 50px;
   text-align: left;
   margin-left: 20px;
+  font-size: 18px;
 }
 .form-table td {
+  font-size: 18px;
   padding: 30px 10px;
   display: inline-grid;
+}
+.form-table {
+  background-color: #eee;
 }
 
 .form-button {
@@ -663,12 +700,15 @@ line-height: 1.2em;
   margin: 0;
   padding: 0;
   list-style: none;
+  display: flex;
 }
 
-#footer .sitenavi li {
+#footer .sitenavi a {
   display: inline-block;
   margin: 0 0 0 20px;
   padding: 0;
+  color: white;
+
 }
 
 #footer .sitenavi li:first-child {
@@ -690,6 +730,7 @@ line-height: 1.2em;
   margin: 0;
   padding: 0;
   text-align: right;
+  color: white;
 }
 
 @media screen and (max-width: 767px) {
@@ -786,6 +827,14 @@ dd {
 .flow>li {
   -ms-flex-preferred-size: 22%;
   flex-basis: 22%;
+}
+.flow a {
+  text-decoration: none;
+  color: #00CC00;
+}
+.flow p {
+  font-size: 14px;
+  text-align: left;
 }
 
 
@@ -999,7 +1048,7 @@ dd {
     padding: 10px 0;
   }
 }
-/*スラッシュ*/
+/* スラッシュ
 .quote {
   position: relative;
   padding: 0px 60px;
@@ -1015,7 +1064,7 @@ div.quote::after {
   width: 2px;
   height: 100%;
   background: #ccc;
-}
+} */
 
 div.quote::before {
   left: 29px;
