@@ -19,8 +19,8 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./asset/css/sanitize.css" />
-    <link rel="stylesheet" href="./asset/css/style.css" />
+    <link rel="stylesheet" href="../asset/css/sanitize.css" />
+    <link rel="stylesheet" href="../asset/css/style.css" />
   </head>
   <body>
     <div class="header-wrap">
@@ -79,26 +79,42 @@
         お問合せ内容は月曜日～金曜日の午前9時から午後5時（土日・祝日・年末年始は除く）で確認させていただいております。<br />
         記載いただいた内容により回答までお時間をいただく場合があります。あらかじめご了承下さい。
       </p>
-      <form action="contactform.php" class="form" method="post">
-        <table class="form-table">
-          <tr>
+
+      <!--form-->
+
+      <form action="confirm.php" method="post" name="form">
+        <div class="contact-form">
+          <label for="name">お名前</label>
+          <input type="text" id="name" name="name" />
+        </div>
+        <div class="contact-form">
+          <label for="email">メールアドレス</label>
+          <input type="text" id="email" name="email" />
+        </div>
+        <div class="contact-form">
+          <label for="message">メッセージ</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <input class="btn" type="submit" value="確認" />
+      </form>
+      <!-- <table class="form-table"> -->
+      <!-- <tr>
             <th>お問い合わせ内容</th>
             <td>
-              <label class="checkbox">
-                <input type="hidden" name="how" value="none" />
-                <input type="checkbox" name="how1" value="購入" />ご注文
+              <label class="checkbox" for="how[]">
+                <input type="checkbox" name="how[]" value="購入" />ご注文
               </label>
               <label class="checkbox">
                 <input
                   type="checkbox"
-                  name="how2"
+                  name="how[]"
                   value="お見積もり"
                 />お見積もり
               </label>
               <label class="checkbox">
                 <input
                   type="checkbox"
-                  name="how3"
+                  name="how[]"
                   value="その他・お問い合わせ"
                 />その他・お問い合わせ
               </label>
@@ -106,12 +122,12 @@
           </tr>
           <tr>
             <th>ご購入・お問い合わせの商品</th>
-            <input type="hidden" name="body" value="none" />
             <td>
-              <label class="checkbox">
+              <label class="checkbox" for="markin[]">
                 <input
                   type="checkbox"
-                  name="luminousnoname"
+                  name="markin[]"
+                  id="markin[]"
                   value="蓄光名入れなし"
                 />マーキン 高輝度 蓄光タイプ　印刷・名入れなし
               </label>
@@ -137,8 +153,8 @@
                 />マーキン 高輝度 反射タイプ　印刷・名入れあり
               </label>
             </td>
-          </tr>
-          <tr>
+          </tr> -->
+      <!-- <tr>
             <th>
               <label for="companyname"> 会社・店舗名 ※ </label>
             </th>
@@ -234,11 +250,12 @@
           >に基づき、送信いただいたお客様の情報を無断で転用、使用しない事をお約束致します。
         </p>
         <div class="form-button">
-          <button class="button buttou-submission" type="submit">
-            送信内容確認メールを受け取る
+             <input class="btn" type="submit" value="確認">
+           <button class="button buttou-submission" type="submit" value="確認"> -->
+      <!-- 送信内容確認
           </button>
         </div>
-      </form>
+      </form>-->
     </section>
 
     <!--footer-->
