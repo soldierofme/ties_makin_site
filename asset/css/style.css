@@ -217,11 +217,6 @@ border-bottom: 5px solid #FFFF00;
 
 }
 .storong {
-  /*
-  transform: translate(-50%,-50%); */
-  /* position: relative;
-  display: block;
-  */
   position: absolute;
   top: 73%;
   left: 54%;
