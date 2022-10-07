@@ -21,6 +21,9 @@ label,input,textarea,select,button {
 .text-red {
   color: red;
 }
+.text-big {
+  font-size: 36px;
+}
 .button.buttou-submission{
   background-color: aquamarine;
 
@@ -241,6 +244,8 @@ border-bottom: 5px solid #FFFF00;
 .about-headline {
 font-size: 30px;
 margin-bottom: 0;
+letter-spacing: 0.15em;
+line-height: 1.2em;
 }
 .about-description {
   color: #000;
@@ -249,6 +254,7 @@ margin-bottom: 0;
   padding: 30px;
   margin: 0;
 }
+
 .about-firstlist,.about-secondlist {
   text-align: left;
   line-height: 2.3em;
@@ -267,6 +273,9 @@ margin-bottom: 0;
   margin-left: 0;
   padding: 0 30px;
 }
+.about-right p {
+  margin-top: 40px;
+}
 
 .about-left {
   background-color: #CCFFCC;
@@ -275,11 +284,12 @@ margin-bottom: 0;
 .aboutprint-image {
   padding-bottom: 70px;
 }
-/* .text-jd {
-  font-size: 20px;
+ .text-jd {
+  font-size: 18px;
   font-weight: normal;
+  letter-spacing: 0.07em;
   margin: 0;
-} */
+}
 
 @media screen and (max-width: 768px) {
   .about {
