@@ -1043,28 +1043,7 @@ dd {
     padding: 10px 0;
   }
 }
-/* スラッシュ
-.quote {
-  position: relative;
-  padding: 0px 60px;
-  white-space: nowrap;
-  text-align: center;
-}
-div.quote::before,
-div.quote::after {
-  content: "";
-  position: absolute;
-  top: 0px;
-  display: block;
-  width: 2px;
-  height: 100%;
-  background: #ccc;
-} */
 
-div.quote::before {
-  left: 29px;
-  transform: rotate(-30deg)
-}
 
 div.quote::after {
   right: 29px;
