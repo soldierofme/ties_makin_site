@@ -211,9 +211,9 @@ border-bottom: 5px solid #FFFF00;
 
 /*hero*/
 .hero {
-    text-align: center;
-      position: relative;
-        overflow: hidden;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 .hero > img {
   width: 100%;
@@ -224,30 +224,30 @@ border-bottom: 5px solid #FFFF00;
   position: absolute;
   top: 73%;
   left: 54%;
-background-image: url(/asset/images/markinsite-tv-heroimg.png );
-background-size: contain;
-background-repeat: no-repeat;
-background-position: center right ;
-color: #333;
-width: 450px;
-background-color: white;
-font-size: 20px;
-font-weight: bold;
-border-radius: 10px;
-border: #00CC00 solid 3px;
-padding: 20px 20px;
-text-align: left;
-opacity: 90%;
+  background-image: url(/asset/images/markinsite-tv-heroimg.png );
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right ;
+  color: #333;
+  width: 450px;
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: #00CC00 solid 3px;
+  padding: 20px 20px;
+  text-align: left;
+  opacity: 90%;
 }
 .storong-text {
   color: #00CC00;
   font-size: 18px;
-    font-weight: bold;
-    position: absolute;
-      top: 71%;
-      left: 72%;
-      z-index: 100;
-      text-align: center;
+  font-weight: bold;
+  position: absolute;
+  top: 71%;
+  left: 72%;
+  z-index: 100;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
