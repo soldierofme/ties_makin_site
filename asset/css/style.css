@@ -1020,7 +1020,7 @@ dd {
   text-align: left;
   font-size: 19px;
 }
-.pdf a {
+.pdf {
   display: block;
   width: 60%;
   margin: 20px auto;
@@ -1030,6 +1030,11 @@ dd {
   text-align: left;
   font-size: 19px;
   text-decoration: none;
+}
+.pdf :hover {
+  opacity: 0.8;
+  color: #999;
+  cursor: pointer;
 }
 
 .acd-check:checked+.acd-label+.acd-content {
