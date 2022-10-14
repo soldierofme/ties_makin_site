@@ -224,13 +224,13 @@ border-bottom: 5px solid #FFFF00;
   position: absolute;
   top: 73%;
   left: 54%;
-  background:#00CC00 url(../../asset/images/markinsite_tv_heroimg.png);
+  background-image: url(../../asset/images/markinsite_tv_heroimg.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center right ;
   color: #333;
   width: 450px;
-  /* background-color: white; */
+  background-color: white;
   font-size: 20px;
   font-weight: bold;
   border-radius: 10px;
