@@ -82,26 +82,27 @@
         記載いただいた内容により回答までお時間をいただく場合があります。あらかじめご了承下さい。
       </p>
 
-      <form action="confirm.php">
+      <form action="contactform.php" name="form" method="post">
         <table class="form-table">
           <tr>
+            <input type="hidden" name="how" value="none" />
             <th>お問い合わせ内容</th>
             <td>
-              <label class="checkbox" for="how[]">
-                <input type="checkbox" name="how[]" value="購入" />ご注文
+              <label class="checkbox" for="how">
+                <input type="checkbox" name="how1" value="問い合わせ内容" />ご注文
               </label>
               <label class="checkbox">
                 <input
                   type="checkbox"
-                  name="how[]"
+                  name="how2"
                   value="お見積もり"
                 />お見積もり
               </label>
               <label class="checkbox">
                 <input
                   type="checkbox"
-                  name="how[]"
-                  value="その他・お問い合わせ"
+                  name="how3"
+                  value="その他お問い合わせ"
                 />その他・お問い合わせ
               </label>
             </td>
@@ -109,11 +110,11 @@
           <tr>
             <th>ご購入・お問い合わせの商品</th>
             <td>
-              <label class="checkbox" for="markin[]">
+              <label class="checkbox" for="markin">
                 <input
                   type="checkbox"
-                  name="markin[]"
-                  id="markin[]"
+                  name="markin1"
+                  id="markin"
                   value="蓄光"
                 />マーキン 高輝度 蓄光タイプ
               </label>
@@ -154,33 +155,6 @@
               />
             </td>
           </tr>
-          <!-- <tr>
-            <th>
-              <label for="city">都道府県 ※ </label>
-            </th>
-            <td>
-              <select class="select" name="city" id="city">
-                <option value="">Menu 1</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 3</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-                <option value="">Menu 2</option>
-              </select>
-            </td>
-          </tr>
-          <tr> -->
             <th>
               <label for="email"> Email ※ </label>
             </th>
