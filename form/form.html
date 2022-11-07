@@ -13,6 +13,7 @@
       name="description"
       content="販促・ノベルティグッズ作成を検討中の皆様、高輝度蓄光 反射テープ マーキンが皆様のプロモーション活動を応援します。オリジナルデザインのインパクトと商品の安心感で差し上げたお客様・広告主様ともにご満足。広告主様の商品・サービスをお客様にしっかりお伝えします。"
     />
+    <meta name="keywords" content="ノベルティ,販促品,粗品,販促グッズ,蓄光,反射材,防災グッズ,インセンティブ,人気商品,SP,オリジナル,企業様,法人様,広告,うれしい">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -37,8 +38,6 @@
           <ul>
             <li class="header-contacttel">
               <img src="../asset/images/site-contact-telfax2.png" alt="" />
-              <!-- <img src="./asset/images/site-contact-telfax.png" alt="タイズ電話番号" />
-                        <img src="./asset/images/つたえたがりそこいるimg.png" alt="マーキンロゴ"> -->
             </li>
             <li class="header-contacbtn">
               <a href="../form/form.html"
@@ -48,6 +47,7 @@
           </ul>
         </div>
       </header>
+      <!--headerナビゲーション-->
       <nav class="header-nav">
         <ul class="header-navlist">
           <li class="header-navitem">
@@ -68,7 +68,7 @@
         </ul>
       </nav>
     </div>
-
+    <!--フォーム本文-->
     <section class="section section-secondry">
       <h1 class="section-headerline">
         ご注文・お見積もり・お問い合わせフォーム
@@ -84,110 +84,110 @@
       <form action="contactform.php" name="form" method="post">
         <table class="form-table">
           <tr>
-            <input type="hidden" name="how" value="none" />
+            <input type="hidden" name="ask" value="none" />
             <th>お問い合わせ内容</th>
-            <td>
-              <label class="checkbox" for="how">
-                <input type="checkbox" name="how1" value="問い合わせ内容" />ご注文
-              </label>
-              <label class="checkbox">
-                <input
-                  type="checkbox"
-                  name="how2"
-                  value="お見積もり"
-                />お見積もり
-              </label>
-              <label class="checkbox">
-                <input
-                  type="checkbox"
-                  name="how3"
-                  value="その他お問い合わせ"
-                />その他・お問い合わせ
-              </label>
-            </td>
+              <td>
+                <label class="checkbox" for="ask">
+                  <input type="checkbox" name="ask1" value="問い合わせ内容" />ご注文
+                </label>
+                <label class="checkbox">
+                  <input
+                    type="checkbox"
+                    name="ask2"
+                    value="お見積もり"
+                  />お見積もり
+                </label>
+                <label class="checkbox">
+                  <input
+                    type="checkbox"
+                    name="ask3"
+                    value="その他お問い合わせ"
+                  />その他・お問い合わせ
+                </label>
+              </td>
           </tr>
           <tr>
             <th>ご購入・お問い合わせの商品</th>
-            <td>
-              <label class="checkbox" for="markin">
-                <input
-                  type="checkbox"
-                  name="markin1"
-                  id="markin"
-                  value="蓄光"
-                />マーキン 高輝度 蓄光タイプ
-              </label>
-              <label class="checkbox">
-                <input
-                  type="checkbox"
-                  name="reflectionnoname"
-                  value="反射"
-                />マーキン 高輝度 反射タイプ
-              </label>
-            </td>
+              <td>
+                <label class="checkbox" for="markin">
+                  <input
+                    type="checkbox"
+                    name="markin1"
+                    id="markin"
+                    value="蓄光"
+                  />マーキン 高輝度 蓄光タイプ
+                </label>
+                <label class="checkbox">
+                  <input
+                    type="checkbox"
+                    name="reflectionnoname"
+                    value="反射"
+                  />マーキン 高輝度 反射タイプ
+                </label>
+              </td>
           </tr>
           <tr>
             <th>
               <label for="companyname"> 会社・店舗名 ※ </label>
             </th>
-            <td>
-              <input
-                class="input"
-                type="text"
-                id="companyname"
-                size="30"
-                name="companyname"
-              />
-            </td>
+              <td>
+                <input
+                  class="input"
+                  type="text"
+                  id="companyname"
+                  size="30"
+                  name="companyname"
+                />
+              </td>
           </tr>
           <tr>
             <th>
               <label for="name"> ご担当者様お名前 ※ </label>
             </th>
-            <td>
-              <input
-                class="input"
-                type="text"
-                id="name"
-                size="30"
-                name="name"
-              />
-            </td>
+              <td>
+                <input
+                  class="input"
+                  type="text"
+                  id="name"
+                  size="30"
+                  name="name"
+                />
+              </td>
           </tr>
             <th>
               <label for="email"> Email ※ </label>
             </th>
-            <td>
-              <input
-                class="input"
-                type="text"
-                id="email"
-                size="30"
-                name="email"
-              />
-            </td>
+              <td>
+                <input
+                  class="input"
+                  type="text"
+                  id="email"
+                  size="30"
+                  name="email"
+                />
+              </td>
           </tr>
           <tr>
             <th>
               <label for="tel"> 電話番号 ※ </label>
             </th>
-            <td>
-              <input class="input" type="tel" id="tel" size="30" name="tel" />
-            </td>
+              <td>
+                <input class="input" type="tel" id="tel" size="30" name="tel" />
+              </td>
           </tr>
           <tr>
             <th>
               <label for="detail">ご用件・お問い合わせ </label>
             </th>
-            <td>
-              <textarea
-                class="textarea"
-                cols="30"
-                rows="10"
-                id="detail"
-                name="detail"
-              ></textarea>
-            </td>
+              <td>
+                <textarea
+                  class="textarea"
+                  cols="30"
+                  rows="10"
+                  id="detail"
+                  name="detail"
+                ></textarea>
+              </td>
           </tr>
         </table>
         <p class="normalcontents">
