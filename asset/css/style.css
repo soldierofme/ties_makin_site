@@ -457,6 +457,16 @@ line-height: 1.2em;
   box-shadow: 5px 5px 0 #bbb;
   transition: box-shadow .25s;
 }
+.thanks{
+  margin-top: 100px;
+  display: block;
+  margin: auto;
+  text-decoration: none;
+}
+.thanks a {
+  text-decoration: none;
+  color: #EEEEEE;
+}
 
 .button:hover{
   box-shadow: 0 0 0 #bbb;
@@ -1075,4 +1085,10 @@ dd {
 div.quote::after {
   right: 29px;
   transform: rotate(30deg)
+}
+/*thanks*/
+.thanks_tel {
+  font-size: 1.5em;
+  text-align: center;
+
 }
