@@ -41,12 +41,16 @@ html {
   padding: 30px 15px;
   margin: 0 auto;
   padding-top: 200px;
-    margin-top: -200px;
+  margin-top: -200px;
 }
 .section.section-secondry {
   margin-top: 80px;
-
 }
+.section.privacy {
+  padding-top: 400px;
+  text-align: center;
+}
+
 .section-markin {
   display: flex;
   justify-content: space-between;
