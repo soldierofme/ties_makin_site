@@ -1,303 +1,235 @@
-
-<?php
-
-/*--------------------------------------------------------------
-
-
-	confirm.php - 本体[755]
-	form.html - 入力フォーム[644]
-	confirm.php - 確認画面用[705]
-	form_completion.html - 送信完了画面[644]
-	template.php - メール送信用テンプレート[705]
-	reply.php - 自動返信用テンプレート[705]
-
-	フォームのnameに「;s」オプションをつけると
-	必須項目扱いになります。
-	例) name="comment;s"
-	nameにemailを指定するとメールアドレスとして扱われます。
-	nameにemailcheckを指定するとメールアドレスの再入力の確認を
-	することができます。
-	※emailを使わない場合、emailcheckも利用しないようにして下さい。
-
-	入力画面もしくは確認画面で
-	「autoReply」に対して「1」を渡すと入力されたメールアドレスに
-	自動返信をします。
-	例）<input name="autoReply" type="hidden" value="1" />
-	or　<input name="autoReply" type="checkbox" value="1" />
-	※emailの項目がない場合は無効になります。
-
-	確認画面用(confirm.php)には非表示フィールドで
-	「mode」に対して「SEND」を必ず渡して下さい。
-	例）<input name="mode" type="hidden" value="SEND" />
-================================================================
-	画面の流れ
-	form.html(入力) ≫ contactform.php(入力チェック) ≫
-	confirm.php(確認) ≫ contactform.php(送信[template.php/reply.php]) ≫
-	form_completion.html(完了)
---------------------------------------------------------------*/
-
-
-// 設定
-$mail_to = 'soldierofme@gmail.com'; // lightwalker@lightwalker.jpフォームデータを受け取るメールアドレス
-$mail_subject = 'マーキンへのお問合せ／お見積り'; // 受け取る時のSubject（件名）
-$reply_subject = 'マーキンへのお問合せ／お見積りありがとうございます'; // 送信者へ自動返信のSubject（件名）
-$internal_enc = 'UTF-8'; // 文字エンコード
-
-
-// メイン
-session_start();
-if (!extension_loaded('mbstring')) Err('マルチバイト文字列関数は利用できません');
-if (!$mail_to) Err('受取先メールアドレスが設定されてません');
-if (!$_POST) Err('送信データがありません');
-mb_language('ja');
-mb_internal_encoding($internal_enc);
-$x_mailer = 'Sapphirus.Formmail Ver. 1.40 (PHP/' . phpversion() . ')';
-$mode = $_POST['mode'];
-
-switch ($mode) {
-case 'SEND': // メール送信
-	if (!$_SESSION) Err('セッションデータがありません');
-
-	// メールヘッダ
-	if (!$_SESSION['email']) $mail_from = 'Formmail';
-	else $mail_from = $_SESSION['email'];
-	$mail_header  = "From: soldierofme@gmail.com\n";
-	if ($mail_bcc) $mail_header .= "Bcc: {$mail_bcc}\n";
-
-	// メール送信
-	include ('template.php');
-	$mail_message = html_entity_decode($mail_message, ENT_QUOTES, $internal_enc);
-	$mail_message = str_replace("<br />", "", $mail_message);
-	$mail_message = str_replace("\t", "\n", $mail_message);
-	$mail_message = mb_convert_encoding($mail_message, $internal_enc, 'AUTO');
-	mb_send_mail($mail_to, $mail_subject, $mail_message, $mail_header);
-
-	// メール自動返信
-	if ($_SESSION['autoReply'] && $_SESSION['email'] && is_file('reply.php')) {
-		$reply_header  = "From: {$mail_to}\n";
-		if ($mail_bcc) $reply_header .= "Bcc: {$mail_bcc}\n";
-		$reply_header .= "X-Mailer: {$x_mailer}";
-		include ('reply.php');
-		$reply_message = html_entity_decode($reply_message, ENT_QUOTES, $internal_enc);
-		$reply_message = str_replace("<br />", "", $reply_message);
-		$reply_message = str_replace("\t", "\n", $reply_message);
-		$reply_message = mb_convert_encoding($reply_message, $internal_enc, 'AUTO');
-		mb_send_mail($mail_from, $reply_subject, $reply_message, $reply_header);
-	}
-	$_SESSION = array();
-	session_unset();
-	session_destroy();
-	header('Location: form_completion.html');
-	break;
-
-default: // 入力データ処理
-	session_unset();
-	foreach ($_POST as $key => $value) {
-		list($name, $option) = explode(";", $key);
-		if ($option == 's' && !$value) {
-			$_SESSION[$name] = '<span class="red">必須項目です</span>';
-			$error = 1;
-		} elseif ($name == 'email' && $value) {
-			if (!preg_match("/^[\w\-\.]+\@[\w\-\.]+\.([a-z]+)$/", $value)) {
-				$_SESSION['email'] = '<span class="red">メールアドレスが正しく入力されていません</span>';
-				$error = $email = 1;
-			} else {
-				$_SESSION['email'] = $email = $value;
-			}
-		} elseif ($name == 'emailcheck') {
-			if ($email != 1 && $email != $value) {
-				$_SESSION['email'] = '<span class="red">メールアドレスが一致しません</span>';
-				$error = 1;
-			}
-		} else {
-			if (is_array($value)) {
-				$value = implode("\t", $value);
-			}
-		if (get_magic_quotes_gpc()) $value = stripslashes($value);
-		$value = mb_convert_encoding($value, $internal_enc, 'AUTO');
-		$value = mb_convert_kana($value, 'KV');
-		$value = htmlspecialchars($value, ENT_QUOTES);
-		$_SESSION[$name] = nl2br($value);
-		}
-	}
-	$_SESSION['inputErr'] = $error;
-	header('Location: confirm.php');
-}
-exit;
-
-
-function Err($err) { // エラー表示用
-	$internal_enc = $GLOBALS['internal_enc'];
-	echo <<<EOM
-
-<!DOCTYPE HTML>
-<html lang="ja" prefix="og: http://ogp.me/ns#">
+<!DOCTYPE html>
+<html lang="ja">
 
 <head>
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<meta name="format-detection" content="telephone=no" />
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
-<meta http-equiv="content-style-type" content="text/css" />
-
-
-
-<meta name="copyright" content="Copyright (C) Light Walker All Rights Reserved." />
-<meta name="Author" content="Light Walker" />
-
-
-<title>大変恐れ入りますがエラーです：$err</title>
-
-
-
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen,print" />
-<link rel="stylesheet" href="../css/deco.css" type="text/css" media="screen,print" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" media="screen,print" />
-
-
-
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="../js/lightwalker.js"></script>
-<script src="../js/jquery.cookie.js"></script>
-<script src="../js/jquery.ah-placeholder.js"></script>
-
-
-
-<!--[if lt IE 9]>
-<script type="text/javascript" src="../js/selectivizr-min.js"></script>
-<![endif]-->
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-100706953-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>高輝度蓄光反射テープ マーキン ノベルティサイト</title>
+    <meta name="description" content="販促・ノベルティグッズ作成を検討中の皆様、高輝度蓄光 反射テープ マーキンが皆様のプロモーション活動を応援します。オリジナルデザインのインパクトと商品の安心感で差し上げたお客様・広告主様ともにご満足。広告主様の商品・サービスをお客様にしっかりお伝えします。" />
+    <meta name="keywords" content="ノベルティ,販促品,粗品,販促グッズ,蓄光,反射材,防災グッズ,インセンティブ,人気商品,SP,オリジナル,企業様,法人様,広告,うれしい">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../asset/css/sanitize.css" />
+    <link rel="stylesheet" href="../asset/css/style.css" />
 </head>
 
 <body>
+    <div class="header-wrap">
+        <header class="header">
+            <div class="site-logo">
+                <a href="../index.html">
+                    <img src="../asset/images/site-markin-logo3.png" alt="法人様向けマーキンノベルティサイト" />
+                </a>
+            </div>
+            <div class="header-contact">
+                <ul>
+                    <li class="header-contacttel">
+                        <img src="../asset/images/site-contact-telfax2.png" alt="" />
+                    </li>
+                    <li class="header-contacbtn">
+                        <a href="../form/form.html">ご注文・お見積・<br class="sma" />お問い合わせ</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <!--headerナビゲーション-->
+        <nav class="header-nav">
+            <ul class="header-navlist">
+                <li class="header-navitem">
+                    <a href="../index.html">ホーム</a>
+                </li>
+                <li class="header-navitem">
+                    <a href="../index.html#price">価格・送料</a>
+                </li>
+                <li class="header-navitem">
+                    <a href="../index.html#orijinal">オリジナル名入れ</a>
+                </li>
+                <li class="header-navitem">
+                    <a href="../index.html#orijinal">入稿について</a>
+                </li>
+                <li class="header-navitem">
+                    <a href="../index.html#flow">ご注文の流れ</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--フォーム本文-->
+    <section class="section section-secondry">
+        <h1 class="section-headerline">
+            ご注文・お見積もり・お問い合わせフォーム
+        </h1>
+        <h2 class="section-headerlineh2">
+            お問い合わせ内容をご確認の上、送信ボタンをクリックしてください。
+        </h2>
+        <p>
+            お問合せ内容は月曜日～金曜日の午前9時から午後5時（土日・祝日・年末年始は除く）で確認させていただいております。<br />
+            記載いただいた内容により回答までお時間をいただく場合があります。あらかじめご了承下さい。
+        </p>
+        <?php
+        //入力値の取得とチェック
+        $companyname = htmlspecialchars($_POST["companyname"], ENT_QUOTES, "UTF-8");
+        if (empty($companyname)) {
+            echo "<p>会社・店舗名を入力してください。</p>";
+            exit;
+        }
+        $name = htmlspecialchars($_POST["name"], ENT_QUOTES, "UTF-8");
+        if (empty($name)) {
+            echo "<p>ご担当者様お名前を入力してください。</p>";
+            exit;
+        }
+        $email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
+        if (empty($email)) {
+            echo "<p>メールアドレスを入力してください。</p>";
+            exit;
+        }
+        $tel = htmlspecialchars($_POST["tel"], ENT_QUOTES, "UTF-8");
+        if (empty($tel)) {
+            echo "<p>電話番号を入力してください。</p>";
+            exit;
+        }
+        $detail = htmlspecialchars($_POST["detail"], ENT_QUOTES, "UTF-8");
+
+
+        //問い合わせ内容、ご購入・お問い合わせの商品が1つもチェックされていなければなしと記載
+        if (empty($_POST["ask"])) {
+            $ask = "なし";
+        } else {
+            $ask = implode("", $_POST["ask"]);
+        }
+        if (empty($_POST["markin"])) {
+            $markin = "なし";
+        } else {
+            $markin = implode("", $_POST["markin"]);
+        }
+        
 
 
 
 
+        $_SESSION["companyname"] = $companyname;
+        $_SESSION["name"] = $name;
+        $_SESSION["email"] = $email;
+        $_SESSION["tel"] = $tel;
+        $_SESSION["detail"] = $detail;
+        $_SESSION["ask"] = $ask;
+        $_SESSION["markin"] = $markin;
+        ?>
 
+        <form action="thanks.php" name="form" method="post">
+            <table class="form-table">
+                <tr>
+                    <input type="hidden" name="ask" value="none" />
+                    <th>お問い合わせ内容</th>
+                    <td>
+                        <?php echo $ask; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ご購入・お問い合わせの商品</th>
+                    <td>
+                    <?php echo $markin; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="companyname"> 会社・店舗名 ※ </label>
+                    </th>
+                    <td>
+                        <?= $companyname ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="name"> ご担当者様お名前 ※ </label>
+                    </th>
+                    <td>
+                        <?= $name ?>
+                    </td>
+                </tr>
+                <th>
+                    <label for="email"> Email ※ </label>
+                </th>
+                <td>
+                    <?= $email ?>
+                </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="tel"> 電話番号 ※ </label>
+                    </th>
+                    <td>
+                        <?= $tel ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="detail">ご用件・お問い合わせ </label>
+                    </th>
+                    <td>
+                        <?=  nl2br($detail) ?>
+                    </td>
+                </tr>
+            </table>
+            <div class="form-button">
+            <input class="button-third" type="button" onclick="history.back()" value="戻る">
+               <button class="button buttou-submission" type="submit">送信</button>
+            </div>
+            <!-- hiddenフィールド -->
+            <input type="hidden" name="ask" value="<?php echo $ask; ?>">
+            <input type="hidden" name="markin" value="<?php echo $markin; ?>">
+            <input type="hidden" name="companyname" value="<?php echo $companyname; ?>">
+            <input type="hidden" name="name" value="<?php echo $name; ?>">
+            <input type="hidden" name="email" value="<?php echo $email; ?>">
+            <input type="hidden" name="tel" value="<?php echo $tel; ?>">
+            <input type="hidden" name="detail" value="<?php echo $detail; ?>">
+        </form>
+    </section>
 
+    <!--footer-->
+    <footer id="footer">
+        <section class="primary">
+            <p class="logo">タイズ株式会社</p>
+            <p class="address">
+                〒110-0008<span class="space">東京都台東区池之端1-1-4</span><span class="space">第2ワタイフラット4F</span><br />
+                TEL : 03-5817-4852<span class="space">/</span><span class="space">FAX</span> : 03-5817-4862
+            </p>
+            <div class="navi-row">
+                <ul class="navi">
+                    <li><a href="../index.html">ホーム</a></li>
+                    <li><a href="../index.html#price">価格表・送料</a></li>
+                    <li><a href="../index.html#orijinal">オリジナル名入れ</a></li>
+                    <li><a href="../index.html#orijinal">入稿について</a></li>
+                    <li><a href="../index.html#flow">ご注文の流れ</a></li>
+                </ul>
+                <ul class="sns-navi">
+                    <li>
+                        <a href="https://twitter.com/tiesofficial" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/watch?v=2816c3ExPW8" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/ties_store_official/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/tiesofficial" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="secondary">
+            <ul class="sitenavi">
+                <li><a href="#">会社概要</a></li>
+                <li><a href="privacypolicy.html">プライバシーポリシー</a></li>
+            </ul>
+            <p class="copyright">Copyright ties,Inc. All rights reserved.</p>
+        </section>
+    </footer>
 
-<!-- header -->
-<header>
-
-<div class="clearfix" id="header">
-<h1 class="clearfix">Light Walker(ライトウォーカー)｜超軽量の移動式LED看板＊屋外広告,LED看板,電光掲示板,LEDディスプレー,ledサイン</h1>
-
-
-<div id="header_left"> <a href="http://www.lightwalker.jp/"><img src="../images/logo2.png" width="141" height="54" alt="屋外広告,広告看板,広告媒体,led販売,LED,販売LED,電飾看板,LED看板,ledサイン,LEDディスプレー,led,表示機,LED表示機,電光表示機,電光看板,電光掲示板"></a> </div>
-
-
-<ul id="header_right">
-<li><a href="../micro/index.html"><i class="fa fa-asterisk" aria-hidden="true"></i>&nbsp;ライトウォーカー&#047;マイクロ</a></li>
-<li><a href="../shoppingguide.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;ショッピングガイド</a></li>
-<li><a href="form.html"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;お見積りフォーム</a></li>
-<li><a href="tel:0358174852"><i class="fa fa-mobile" aria-hidden="true"></i>&nbsp;03-5817-4852</a></li>
-</ul>
-
-</div>
-</header>
-
-
-<!-- //header -->
-
-
-
-
-<!-- page_t -->
-<div id="page_t" class="clearfix">
-<h2>フォーム送信エラー</h2>
-</div>
-<!-- //page_t -->
-
-
-
-
-<!-- box_sandwich_stripegreen -->
-<section class="box_sandwich_stripegreen">
-
-
-<div class="box_inner">
-
-
-
-
-
-
-<!-- normalcontents -->
-<section class="normalcontents">
-
-
-<h3 class="normaltxt"><strong>たいへん恐れ入りますがエラーになりました。 : </strong>$err<br>
-戻って内容をご確認ください。</h3>
-<p class="normaltxt mt40 mb40"><input type="button" value="戻って修正"  class="button1" onclick="history.back();"/></p>
-
-</section>
-<!-- //normalcontents -->
-
-
-
-
-</div>
-
-
-</section>
-<!-- box_sandwich_stripegreen -->
-
-
-
-
-<footer>
-
-
-<div id="footer" class="clearfix">
-
-<div class="footerlogo"><a href="http://www.lightwalker.jp/"><img src="../images/logo2.png" width="141" height="54" alt="屋外広告,広告看板,広告媒体,led販売,LED,販売LED,電飾看板,LED看板,ledサイン,LEDディスプレー,led,表示機,LED表示機,電光表示機,電光看板,電光掲示板"></a></div>
-
-<ul>
-<li><a href="../company.html">会社概要</a></li>
-<li><a href="../privacypolicy.html">プライバシーポリシー</a></li>
-<li><a href="../shoppingguide.html">ショッピングガイド</a></li>
-<li><a href="form.html">お問合せ</a></li>
-</ul>
-
-<p id="footcopy">Copyright &copy; <a href="http://www.lightwalker.jp/">Light Walker</a>. All rights reserved.</p>
-</div>
-
-
-
-</footer>
-<!-- //footer -->
-
-<!-- ページトップへ -->
-<div id="page-top"><a href="#header"><i class="fa fa-chevron-up fa-3x"></i></a></div>
-<!-- //ページトップへ-->
-
-
-
-
-
-
+    <script src=""></script>
 </body>
+
 </html>
-
-
-
-EOM;
-	exit;
-}
-
-?>

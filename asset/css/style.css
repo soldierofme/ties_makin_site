@@ -30,8 +30,8 @@ label,input,textarea,select,button {
 .button.buttou-submission{
   font-size: 24px;
   font-weight: bold;
-
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -469,6 +469,17 @@ border-bottom: 5px solid #FFFF00;
   color: #fff;
   font-weight: bold;
   background-color: #00CC00;
+  text-align: center;
+  padding: 20px 200px;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 0 #bbb;
+  transition: box-shadow .25s;
+}
+input.button-third {
+  color: #fff;
+  font-weight: bold;
+  background-color: rgb(174, 174, 174) !important;
   text-align: center;
   padding: 20px 200px;
   text-decoration: none;
@@ -1069,3 +1080,17 @@ div.quote::after {
   text-align: center;
 
 }
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

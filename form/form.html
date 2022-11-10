@@ -84,25 +84,16 @@
       <form action="contactform.php" name="form" method="post">
         <table class="form-table">
           <tr>
-            <input type="hidden" name="ask" value="none" />
-            <th>お問い合わせ内容</th>
+              <th>お問い合わせ内容</th>
               <td>
                 <label class="checkbox" for="ask">
-                  <input type="checkbox" name="ask1" value="問い合わせ内容" />ご注文
+                  <input type="checkbox" name="ask[]" value="ご注文" />ご注文
                 </label>
                 <label class="checkbox">
-                  <input
-                    type="checkbox"
-                    name="ask2"
-                    value="お見積もり"
-                  />お見積もり
+                  <input type="checkbox" name="ask[]" value="お見積もり" />お見積もり
                 </label>
                 <label class="checkbox">
-                  <input
-                    type="checkbox"
-                    name="ask3"
-                    value="その他お問い合わせ"
-                  />その他・お問い合わせ
+                  <input type="checkbox" name="ask[]" value="その他お問い合わせ" />その他・お問い合わせ
                 </label>
               </td>
           </tr>
@@ -110,20 +101,10 @@
             <th>ご購入・お問い合わせの商品</th>
               <td>
                 <label class="checkbox" for="markin">
-                  <input
-                    type="checkbox"
-                    name="markintikukou"
-                    id="markin"
-                    value="蓄光"
-                  />マーキン 高輝度 蓄光タイプ
+                  <input type="checkbox" name="markin[]" id="markin" value="蓄光" />マーキン 高輝度 蓄光タイプ
                 </label>
                 <label class="checkbox">
-                  <input
-                    type="checkbox"
-                    name="markinhansya"
-                    id="markin"
-                    value="反射"
-                  />マーキン 高輝度 反射タイプ
+                  <input type="checkbox" name="markin[]" id="markin" value="反射" />マーキン 高輝度 反射タイプ
                 </label>
               </td>
           </tr>
@@ -138,6 +119,7 @@
                   id="companyname"
                   size="30"
                   name="companyname"
+                  required="required"
                 />
               </td>
           </tr>
@@ -152,6 +134,7 @@
                   id="name"
                   size="30"
                   name="name"
+                  required="required"
                 />
               </td>
           </tr>
@@ -165,6 +148,7 @@
                   id="email"
                   size="30"
                   name="email"
+                  required="required"
                 />
               </td>
           </tr>
@@ -173,7 +157,7 @@
               <label for="tel"> 電話番号 ※ </label>
             </th>
               <td>
-                <input class="input" type="tel" id="tel" size="30" name="tel" />
+                <input class="input" type="tel" id="tel" size="30" name="tel" required="required"/>
               </td>
           </tr>
           <tr>
