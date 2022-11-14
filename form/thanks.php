@@ -4,9 +4,6 @@ if (empty($_POST)) {
   header('Location: form.html');
   exit();
 }
-session_start();
-ini_set('display_errors', 1);
-ini_set('error_reporting', E_ALL);
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +50,7 @@ ini_set('error_reporting', E_ALL);
   mb_internal_encoding("UTF-8");
 
   // 自分への通知メールの送信
-  $to ="soldierofme@gmail.com";
+  $to ="hogehoge@hogehoge.com";
   $title ="お問い合わせがありました";
   $ext_header ="From:{$email}";
   $body = <<<EOM
@@ -83,11 +80,9 @@ ini_set('error_reporting', E_ALL);
   // 入力者への自動返信メールの送信
   $to2 ="{$email}";
   $title2 ="お問い合わせありがとうございました";
-  $ext_header2 ="From:soldierofme@gmail.com";
+  $ext_header2 ="From:hogehoge@hogehoge.com";
   $body2 = <<<EOM
 
-  {$companyname}
-  {$name}様
   お問い合せ、誠にありがとうございました。
   以下の内容で送信を受け付けました。
 
@@ -98,6 +93,9 @@ ini_set('error_reporting', E_ALL);
   MAIL : lightwalker@lightwalker.jp
 
   ----------------------------------------
+  {$companyname}
+  {$name}様
+
   お問い合わせ内容：{$ask}
 
   ご購入・お問い合わせの商品:{$markin}
@@ -111,6 +109,7 @@ ini_set('error_reporting', E_ALL);
   電話番号：{$tel}
 
   ご用件・お問い合わせ：{$detail}
+
   ----------------------------------------
   EOM;
 

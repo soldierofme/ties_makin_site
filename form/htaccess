@@ -6,4 +6,3 @@ php_value mbstring.http_output pass
 php_value mbstring.internal_encoding UTF-8
 php_value mbstring.substitute_character none 
 php_value mbstring.encoding_translation OFF
-php_flag display_errors on

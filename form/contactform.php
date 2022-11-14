@@ -97,14 +97,14 @@
         if (empty($_POST["ask"])) {
             $ask = "なし";
         } else {
-            $ask = implode("", $_POST["ask"]);
+            $ask = implode("  ", $_POST["ask"]);
         }
         if (empty($_POST["markin"])) {
             $markin = "なし";
         } else {
-            $markin = implode("", $_POST["markin"]);
+            $markin = implode("  ", $_POST["markin"]);
         }
-
+        
 
 
 
@@ -124,13 +124,13 @@
                     <input type="hidden" name="ask" value="none" />
                     <th>お問い合わせ内容</th>
                     <td>
-                        ■<?php echo $ask; ?>
+                        <?php echo $ask; ?>
                     </td>
                 </tr>
                 <tr>
                     <th>ご購入・お問い合わせの商品</th>
                     <td>
-                    ■<?php echo $markin; ?>
+                    <?php echo $markin; ?>
                     </td>
                 </tr>
                 <tr>
