@@ -138,7 +138,7 @@
                         <label for="companyname"> 会社・店舗名 ※ </label>
                     </th>
                     <td>
-                        ■<?= $companyname ?>
+                        <?= $companyname ?>
                     </td>
                 </tr>
                 <tr>
@@ -146,14 +146,14 @@
                         <label for="name"> ご担当者様お名前 ※ </label>
                     </th>
                     <td>
-                        ■<?= $name ?>
+                        <?= $name ?>
                     </td>
                 </tr>
                 <th>
                     <label for="email"> Email ※ </label>
                 </th>
                 <td>
-                    ■<?= $email ?>
+                    <?= $email ?>
                 </td>
                 </tr>
                 <tr>
@@ -161,7 +161,7 @@
                         <label for="tel"> 電話番号 ※ </label>
                     </th>
                     <td>
-                        ■<?= $tel ?>
+                        <?= $tel ?>
                     </td>
                 </tr>
                 <tr>
@@ -169,7 +169,7 @@
                         <label for="detail">ご用件・お問い合わせ </label>
                     </th>
                     <td>
-                        ■<?=  nl2br($detail) ?>
+                        <?=  nl2br($detail) ?>
                     </td>
                 </tr>
             </table>
