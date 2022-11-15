@@ -1099,3 +1099,14 @@ div.quote::after {
   text-align: center;
   padding: 0;
 }
+/*会社概要ページ*/
+.company {
+  width: 1000px;
+  margin: 0 auto;
+    padding-top: 200px;
+  text-align: center;
+}
+.companyvision {
+  text-align: center;
+  margin-bottom: 70px
+}
