@@ -221,8 +221,8 @@ border-bottom: 5px solid #FFFF00;
 }
 .storong {
   position: absolute;
-  top: 73%;
-  left: 54%;
+  top: 60%;
+  left: 49%;
   background-image: url(../../asset/images/markinsite_tv_heroimg.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -236,7 +236,6 @@ border-bottom: 5px solid #FFFF00;
   border: #00CC00 solid 3px;
   padding: 20px 20px;
   text-align: left;
-  opacity: 90%;
 }
 .storong-text {
   color: #00CC00;
