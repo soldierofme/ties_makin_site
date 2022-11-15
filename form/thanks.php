@@ -178,7 +178,7 @@ EOM;
     </section>
     <section class="secondary">
       <ul class="sitenavi">
-        <li><a href="#">サイトマップ</a></li>
+        <li><a href="../company.html">サイトマップ</a></li>
         <li><a href="../privacypolicy.html">プライバシーポリシー</a></li>
       </ul>
       <p class="copyright">Copyright ties,Inc. All rights reserved.</p>
