@@ -1079,17 +1079,23 @@ div.quote::after {
   text-align: center;
 
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+/*privacypolicy*/
+.innner {
+  text-align: left;
+  margin: 70px 0;
+}
+.innner h3 {
+  padding: 30px 0;
+}
+.normaltxt {
+    text-align: left;
+    padding-bottom: 20px;
+}
+.privacybutton {
+  margin-top: 20px;
+  padding: 20px 80px;
+}
+.normaltxttop {
+  text-align: center;
+  padding: 0;
+}

@@ -104,7 +104,7 @@
         } else {
             $markin = implode("  ", $_POST["markin"]);
         }
-        
+
 
 
 
@@ -223,7 +223,7 @@
         <section class="secondary">
             <ul class="sitenavi">
                 <li><a href="#">会社概要</a></li>
-                <li><a href="privacypolicy.html">プライバシーポリシー</a></li>
+                <li><a href="../privacypolicy.html">プライバシーポリシー</a></li>
             </ul>
             <p class="copyright">Copyright ties,Inc. All rights reserved.</p>
         </section>
