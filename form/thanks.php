@@ -82,6 +82,10 @@ if (empty($_POST)) {
   $title2 ="お問い合わせありがとうございました";
   $ext_header2 ="From:lightwalker@lightwalker.jp";
   $body2 = <<<EOM
+
+
+  {$companyname}
+  {$name}様
   お問い合せ、誠にありがとうございました。
   以下の内容で送信を受け付けました。
 
@@ -92,8 +96,6 @@ if (empty($_POST)) {
   MAIL : lightwalker@lightwalker.jp
 
   ----------------------------------------
-  {$companyname}
-  {$name}様
 
   お問い合わせ内容：{$ask}
 
