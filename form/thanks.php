@@ -50,7 +50,7 @@ if (empty($_POST)) {
   mb_internal_encoding("UTF-8");
 
   // 自分への通知メールの送信
-  $to ="hogehoge@hogehoge.com";
+  $to ="soldierofme@gmail.com";
   $title ="お問い合わせがありました";
   $ext_header ="From:{$email}";
   $body = <<<EOM
@@ -80,9 +80,8 @@ if (empty($_POST)) {
   // 入力者への自動返信メールの送信
   $to2 ="{$email}";
   $title2 ="お問い合わせありがとうございました";
-  $ext_header2 ="From:hogehoge@hogehoge.com";
+  $ext_header2 ="From:lightwalker@lightwalker.jp";
   $body2 = <<<EOM
-
   お問い合せ、誠にありがとうございました。
   以下の内容で送信を受け付けました。
 
@@ -178,8 +177,8 @@ EOM;
     </section>
     <section class="secondary">
       <ul class="sitenavi">
-        <li><a href="../company.html">サイトマップ</a></li>
-        <li><a href="../privacypolicy.html">プライバシーポリシー</a></li>
+        <li><a href="../company.html">会社概要</a></li>
+        <li><a href="privacypolicy.html">プライバシーポリシー</a></li>
       </ul>
       <p class="copyright">Copyright ties,Inc. All rights reserved.</p>
     </section>
