@@ -130,7 +130,7 @@ if (empty($_POST)) {
       if ($return) {
         $result_message = <<<EOM
         <p>メッセージありがとうございました。入力したメールアドレス宛に確認メールを送信しましたので、ご確認ください。</br>
-　      尚、送信いただいてから5日以内に返事がない場合はお手数ですが、再度フォームより送信いただくか、または下記までご連絡ください。</p>
+　      尚、送信いただいてから5日以内に返事がない場合はお手数ですが、再度フォームより送信いただくか、<br>または下記までご連絡ください。</p>
 EOM;
       } else {
         $result_message = "エラーが発生しました。";
@@ -178,7 +178,7 @@ EOM;
     <section class="secondary">
       <ul class="sitenavi">
         <li><a href="../company.html">会社概要</a></li>
-        <li><a href="privacypolicy.html">プライバシーポリシー</a></li>
+        <li><a href="../privacypolicy.html">プライバシーポリシー</a></li>
       </ul>
       <p class="copyright">Copyright ties,Inc. All rights reserved.</p>
     </section>
