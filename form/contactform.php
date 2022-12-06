@@ -115,8 +115,8 @@
         $_SESSION["tel"] = $tel;
         $_SESSION["detail"] = $detail;
         $_SESSION["ask"] = $ask;
+        $a=implode("/",$_SESSION);
         $_SESSION["markin"] = $markin;
-        $a = implode("/",$ask)
         ?>
 
         <form action="thanks.php" name="form" method="post">
