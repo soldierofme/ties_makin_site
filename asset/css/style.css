@@ -1110,3 +1110,53 @@ div.quote::after {
   text-align: center;
   margin-bottom: 70px
 }
+/*参考写真スライド*/
+/*
+右から左へ
+----------------------------*/
+@keyframes infinity-scroll-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/*
+IE11対策
+----------------------------*/
+_:-ms-lang(x)::-ms-backdrop,
+.d-demo {
+  display: -ms-grid;
+  overflow: hidden;
+}
+
+/*----------------------------*/
+.d-demo{
+  width: 950px;
+  margin: 0 auto;
+}
+.d-demo__wrap {
+  display: flex;
+  overflow: hidden;
+
+}
+
+.d-demo__list {
+  display: flex;
+  list-style: none;
+}
+
+.d-demo__list--left {
+  animation: infinity-scroll-left 95s infinite linear 0.5s both;
+}
+
+.d-demo__item {
+  width: calc(100vw / 6);
+}
+
+.d-demo__item>img {
+  width: 100%;
+}
