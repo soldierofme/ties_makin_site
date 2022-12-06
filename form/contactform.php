@@ -116,6 +116,7 @@
         $_SESSION["detail"] = $detail;
         $_SESSION["ask"] = $ask;
         $_SESSION["markin"] = $markin;
+        $a = implode("/",$ask)
         ?>
 
         <form action="thanks.php" name="form" method="post">
@@ -124,7 +125,7 @@
                     <input type="hidden" name="ask" value="none" />
                     <th>お問い合わせ内容</th>
                     <td>
-                        <?php echo $ask; ?><br>
+                        <?php echo $a; ?><br>
                     </td>
                 </tr>
                 <tr>
