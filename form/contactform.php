@@ -115,7 +115,7 @@
         $_SESSION["tel"] = $tel;
         $_SESSION["detail"] = $detail;
         $_SESSION["ask"] = $ask;
-        $a=implode("/",$_ask);
+        $a=implode("/",$_SESSION["ask"]);
         $_SESSION["markin"] = $markin;
         ?>
 
