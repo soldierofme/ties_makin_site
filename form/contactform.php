@@ -114,7 +114,7 @@
         $_SESSION["email"] = $email;
         $_SESSION["tel"] = $tel;
         $_SESSION["detail"] = $detail;
-        $_SESSION["ask"] = $ask;
+        $_SESSION["ask"] = implode("/",$ask);
         $_SESSION["markin"] = $markin;
         ?>
 
@@ -124,13 +124,13 @@
                     <input type="hidden" name="ask" value="none" />
                     <th>お問い合わせ内容</th>
                     <td>
-                        <?php echo $ask,implode("/"); ?><br>
+                        <?php echo $ask; ?>
                     </td>
                 </tr>
                 <tr>
                     <th>ご購入・お問い合わせの商品</th>
                     <td>
-                    <?php echo $markin; ?><br>
+                    <?php echo $markin; ?>
                     </td>
                 </tr>
                 <tr>
