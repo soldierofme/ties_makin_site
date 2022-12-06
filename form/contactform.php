@@ -115,6 +115,7 @@
         $_SESSION["tel"] = $tel;
         $_SESSION["detail"] = $detail;
         $_SESSION["ask"] = $ask;
+        $a = implode("/",$ask);
         $_SESSION["markin"] = $markin;
         ?>
 
@@ -124,7 +125,7 @@
                     <input type="hidden" name="ask" value="none" />
                     <th>お問い合わせ内容</th>
                     <td>
-                        <?php echo implode("/",$ask); ?>
+                        <?php echo $a; ?>
                     </td>
                 </tr>
                 <tr>
