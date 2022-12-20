@@ -159,15 +159,7 @@ border-bottom: 5px solid #FFFF00;
   transition: box-shadow .25s;
 }
 
-@media screen and (max-width:1177px) {
-  .header-contacbtn > a {
-    display: inline-block;
-    font-size: 15px;
-    padding: auto;
-    line-height: 1.5em;
-    padding: 10px 20px;
-  }
-}
+
 .header-contacttel {
   display: inline-grid;
   margin-right: 20px;
@@ -315,15 +307,7 @@ border-bottom: 5px solid #FFFF00;
   margin: 0;
 }
 
-@media screen and (max-width: 768px) {
-  .about {
-    display: block;
-    text-align: center;
-  }
-  .about-image {
-    max-width: 100%;
-  }
-}
+
 
 /* grid */
 .grid {
@@ -496,14 +480,6 @@ input.button-third {
   min-width: 500px;
 }
 
-@media screen and (max-width: 768px){
-    .select,
-    .input,
-    .textarea{
-    min-width: auto;
-    width: 100%;
-  }
-}
 .input {
   border-radius: 5px;
   padding: 15px;
@@ -1159,4 +1135,58 @@ _:-ms-lang(x)::-ms-backdrop,
 
 .d-demo__item>img {
   width: 100%;
+}
+
+/* スマホだけに適用するCSS */
+@media screen and (max-width:479px) {
+
+
+  .header-contacbtn>a {
+    display: inline-block;
+    font-size: 15px;
+    padding: auto;
+    line-height: 1.5em;
+    padding: 10px 20px;
+  }
+  .select,
+  .input,
+  .textarea,
+  .section-markin {
+    min-width: auto;
+    width: 100%;
+  }
+  .about {
+    display: block;
+    text-align: center;
+  }
+
+  .about-image {
+    max-width: 100%;
+  }
+  .header {
+    justify-content: flex-start;
+    padding: 5px 10px;
+  }
+  .site-logo{
+    width: 30%;
+    padding: 0px;
+    margin: 0px;
+  }
+  .site-logo img {
+    width: 30%;
+  }
+    .header-contacttel img {
+      width: 30%;
+    }
+    .header-contact>ul {
+      padding: 0;
+      margin: 0;
+
+    }
+  .header-nav {
+    display: none;
+  }
+  .header-contacbtn {
+    display: none;
+  }
 }
